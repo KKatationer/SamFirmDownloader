@@ -10,7 +10,7 @@ internal class FirmwareInfoViewModel : INotifyPropertyChanged
 
     private string _model = string.Empty;
     private string _region = string.Empty;
-    private string _serial = "R5CX51AAEBF";
+    private string _serial = string.Empty;
     private bool _auto = true;
     private string _pda = string.Empty;
     private string _csc = string.Empty;
