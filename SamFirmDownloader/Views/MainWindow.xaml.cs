@@ -1,4 +1,5 @@
-﻿using Microsoft.Win32;
+﻿using MicaWPF.Controls;
+using Microsoft.Win32;
 using SamFirmDownloader.Helper;
 using SamFirmDownloader.Models;
 using SamFirmDownloader.ViewModels;
@@ -9,7 +10,7 @@ using System.Windows.Documents;
 
 namespace SamFirmDownloader.Views;
 
-public partial class MainWindow : Window
+public partial class MainWindow : MicaWindow
 {
     private readonly FirmwareInfoViewModel? firmwareInfo;
     private readonly DownloadInfoViewModel? downloadInfo;

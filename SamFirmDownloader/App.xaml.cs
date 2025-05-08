@@ -9,16 +9,6 @@ public partial class App : Application
 
     private static void ShowErrorMessage(string message) => MessageBox.Show(message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 
-    private static void ConfigureServices(IServiceCollection services)
-    {
-        services.AddHttpClient();
-        services.ConfigureHttpClientDefaults(config =>
-        {
-            config.RemoveAllLoggers();
-            config.ConfigureHttpClient(client => client.DefaultRequestHeaders.Add("User-Agent", "SamFirm"));
-        });
-    }
-
     protected override void OnStartup(StartupEventArgs e)
     {
         TaskScheduler.UnobservedTaskException += (s, e) => ShowErrorMessage(e.Exception.Message);
@@ -30,9 +20,14 @@ public partial class App : Application
             args.Handled = true;
         };
 
-        var serviceCollection = new ServiceCollection();
-        ConfigureServices(serviceCollection);
-        ServiceProvider = serviceCollection.BuildServiceProvider();
+        var service = new ServiceCollection();
+        service.AddHttpClient();
+        service.ConfigureHttpClientDefaults(config =>
+        {
+            config.RemoveAllLoggers();
+            config.ConfigureHttpClient(client => client.DefaultRequestHeaders.Add("User-Agent", "SamFirm"));
+        });
+        ServiceProvider = service.BuildServiceProvider();
 
         base.OnStartup(e);
     }
