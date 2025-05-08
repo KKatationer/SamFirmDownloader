@@ -75,14 +75,14 @@
 
                 <ComboBox Grid.Row="0" Grid.Column="1" Margin="0,5" IsEditable="True" SelectedIndex="0" Padding="6"
                           ItemsSource="{Binding Models, Source={StaticResource FirmwareInfo}}"
-                          SelectedItem="{Binding Model, Source={StaticResource FirmwareInfo}, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                          Text="{Binding Model, Source={StaticResource FirmwareInfo}, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
 
                 <Label Grid.Row="1" Grid.Column="0" Style="{StaticResource Lbltyle}"
                        Content="Region:" />
 
                 <ComboBox Grid.Row="1" Grid.Column="1" Margin="0,5" IsEditable="True" SelectedIndex="0" Padding="6"
                           ItemsSource="{Binding Regions, Source={StaticResource FirmwareInfo}}"
-                          SelectedItem="{Binding Region, Source={StaticResource FirmwareInfo}, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                          Text="{Binding Region, Source={StaticResource FirmwareInfo}, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
 
                 <Label Grid.Row="2" Grid.Column="0" Style="{StaticResource Lbltyle}"
                        Content="Imei/Serial:" />
