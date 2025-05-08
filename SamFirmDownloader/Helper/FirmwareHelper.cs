@@ -193,7 +193,7 @@ internal static partial class FirmwareHelper
             {
                 var str = stringReader.ReadLine();
                 if (string.IsNullOrEmpty(str))
-                    continue;
+                    break;
 
                 if (str.Contains("/" + model + "/" + region + "/"))
                 {
